@@ -181,12 +181,7 @@ sources += [
 // gpu
 sources += [
     "src/gpu/SDL_gpu.c",
-    "src/gpu/metal/",
     "src/gpu/vulkan/",
-]
-exclude += [
-    "src/gpu/metal/compile_shaders.sh",
-    "src/gpu/metal/Metal_Blit.metal",
 ]
 
 // misc
@@ -233,6 +228,7 @@ sources += [
 #if os(macOS)
     // macOS specific
     sources += [
+        "src/gpu/metal/",
         "src/filesystem/cocoa",
         "src/filesystem/posix",
         "src/audio/coreaudio",
@@ -256,6 +252,8 @@ sources += [
     exclude += [
         "src/render/metal/build-metal-shaders.sh",
         "src/render/metal/SDL_shaders_metal.metal",
+        "src/gpu/metal/compile_shaders.sh",
+        "src/gpu/metal/Metal_Blit.metal",
     ]
 #endif
 
@@ -335,6 +333,7 @@ sources += [
         "src/render/gpu/shaders/tri_color.vert.hlsl",
         "src/render/gpu/shaders/texture_rgb.frag.hlsl",
         "src/render/gpu/shaders/color.frag.hlsl",
+        "src/camera/coremedia",
     ]
 #endif
 
@@ -370,6 +369,7 @@ sources += [
         "src/video/x11",
     ]
     exclude += [
+        "src/camera/coremedia",
         "src/render/vulkan/compile_shaders.bat",
         "src/render/vulkan/VULKAN_VertexShader.hlsl",
         "src/render/vulkan/VULKAN_PixelShader_Textures.hlsl",
